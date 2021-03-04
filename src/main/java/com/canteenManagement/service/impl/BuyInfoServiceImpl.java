@@ -21,7 +21,7 @@ public class BuyInfoServiceImpl extends ServiceImpl<BuyInfoMapper, BuyInfo> impl
         pageBean.setCurrentPage(currentPage);
         pageBean.setPageSize(pageSize);
         List<BuyInfo> list = buyInfoMapper.selectInPage(pageBean);
-        int count = buyInfoMapper.countList(pageBean);
+        int count = buyInfoMapper.countList();
         pageBean.setTotalCount(count);
         pageBean.setPageData(list);
         return new CommonResult(200,"success",pageBean);

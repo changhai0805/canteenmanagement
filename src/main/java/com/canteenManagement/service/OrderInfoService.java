@@ -6,4 +6,5 @@ import com.canteenManagement.util.CommonResult;
 
 public interface OrderInfoService extends IService<OrderInfo> {
     CommonResult insertOrder(OrderInfo orderInfo);
+    CommonResult listOrders(int currentPage,int pageSize);
 }

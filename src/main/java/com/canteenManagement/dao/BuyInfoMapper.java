@@ -16,7 +16,7 @@ public interface BuyInfoMapper extends BaseMapper<BuyInfo> {
     List<BuyInfo> selectInPage(PageBean<BuyInfo> pageBean);
 
     @Select("select count(id) from buyinfo")
-    int countList(PageBean<BuyInfo> pageBean);
+    int countList();
 
     @Update("update buyinfo set status=#{status} where id=#{id}")
     int updateStatus(@Param("id")int id, @Param("status") String status);

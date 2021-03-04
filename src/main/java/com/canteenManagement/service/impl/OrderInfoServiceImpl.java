@@ -5,9 +5,12 @@ import com.canteenManagement.dao.OrderInfoMapper;
 import com.canteenManagement.pojo.OrderInfo;
 import com.canteenManagement.service.OrderInfoService;
 import com.canteenManagement.util.CommonResult;
+import com.canteenManagement.util.PageBean;
 import com.canteenManagement.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo> implements OrderInfoService {
@@ -28,5 +31,17 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
 
         }
 
+    }
+
+    @Override
+    public CommonResult listOrders(int currentPage, int pageSize) {
+        PageBean<OrderInfo> pageBean = new PageBean<OrderInfo>();
+        pageBean.setCurrentPage(currentPage);
+        pageBean.setPageSize(pageSize);
+        List<OrderInfo> list = orderInfoMapper.selectInPage(pageBean);
+        int count = orderInfoMapper.countList();
+        pageBean.setTotalCount(count);
+        pageBean.setPageData(list);
+        return new CommonResult(200,"success",pageBean);
     }
 }

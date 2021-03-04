@@ -18,4 +18,19 @@ public class OrderInfoController {
     public CommonResult insert(OrderInfo orderInfo) {
         return orderInfoService.insertOrder(orderInfo);
     }
+    @RequestMapping("/list.do")
+    public CommonResult list(int pageNum,int pageSize) {
+        int currentPage = pageNum;
+        return orderInfoService.listOrders(currentPage,pageSize);
+    }
+    @RequestMapping("/delete.do")
+    public CommonResult delete(int id) {
+        boolean remove = orderInfoService.removeById(id);
+        if(remove){
+            return new CommonResult(200,"success",1);
+        }else {
+            return new CommonResult(500,"failed",0);
+        }
+    }
+
 }

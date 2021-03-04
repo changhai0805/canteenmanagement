@@ -16,7 +16,7 @@ public interface GoodsInfoMapper extends BaseMapper<GoodsInfo> {
     List<GoodsInfo> selectInPage(PageBean<GoodsInfo> pageBean);
 
     @Select("select count(id) from goodsinfo")
-    int countList(PageBean<GoodsInfo> pageBean);
+    int countList();
 
     @Select("select * from goodsinfo where good_name like '%' #{keyword} '%' order by buy_time desc limit #{beginIndex},#{pageSize}")
     List<GoodsInfo> findByNameInPage(PageBean<GoodsInfo> pageBean);

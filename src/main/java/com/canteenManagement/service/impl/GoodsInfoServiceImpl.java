@@ -21,7 +21,7 @@ public class GoodsInfoServiceImpl extends ServiceImpl<GoodsInfoMapper, GoodsInfo
         pageBean.setCurrentPage(currentPage);
         pageBean.setPageSize(pageSize);
         List<GoodsInfo> list = goodsInfoMapper.selectInPage(pageBean);
-        int count = goodsInfoMapper.countList(pageBean);
+        int count = goodsInfoMapper.countList();
         pageBean.setTotalCount(count);
         pageBean.setPageData(list);
         return new CommonResult(200,"success",pageBean);
