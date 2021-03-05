@@ -26,8 +26,8 @@ public interface MenuInfoMapper extends BaseMapper<MenuInfo> {
     List<MenuInfo> selectStayInPage(PageBean<MenuInfo> pageBean);
     @Select("select count(id) from menuinfo where status='已采样'")
     int countStay();
-    @Update("update menuinfo set status='已采样',sampling_url=#{samplingUrl} where id=#{id}")
-    int updateStatus(@Param("id")int id,@Param("samplingUrl")String samplingUrl);
+    @Update("update menuinfo set status='已采样' where id=#{id}")
+    int updateStatus(@Param("id")int id);
 
     @Update("update menuinfo set status='未采样' where id=#{id}")
     int deleteStay(int id);

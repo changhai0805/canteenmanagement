@@ -96,9 +96,9 @@ public class MenuInfoController {
     }
     @RequestMapping("/insertStay.do")
     @CrossOrigin
-    public CommonResult insertStay(int id,String samplingUrl){
+    public CommonResult insertStay(int id){
 
-        return menuInfoService.updateStatus(id,samplingUrl);
+        return menuInfoService.updateStatus(id);
     }
     @RequestMapping("/deleteStay.do")
     @CrossOrigin

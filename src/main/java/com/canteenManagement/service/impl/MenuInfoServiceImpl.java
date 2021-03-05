@@ -80,8 +80,8 @@ public class MenuInfoServiceImpl extends ServiceImpl<MenuInfoMapper, MenuInfo> i
     }
 
     @Override
-    public CommonResult updateStatus(int id, String samplingUrl) {
-         if(menuInfoMapper.updateStatus(id,samplingUrl)==1){
+    public CommonResult updateStatus(int id) {
+         if(menuInfoMapper.updateStatus(id)==1){
              return new CommonResult(200,"success",1);
          }else {
              return new CommonResult(500,"failed",0);
