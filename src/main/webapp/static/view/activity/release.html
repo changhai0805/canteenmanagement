@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>发布菜单</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../component/pear/css/pear.css" />
+    <style>
+        body {
+            background: url(../../admin/images/meat.jpeg) no-repeat;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-form layuimini-form">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <img class="pic_url" src="../../readme/pic.png" height="200px" />
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">主图</label>
+        <div class="layui-input-inline">
+            <input type="text" name="firstUrl" id="pic_url" placeholder="不上传就留空" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-word-aux">
+            <button type="button" class="layui-btn layui-btn-normal" id="pic">
+                <i class="layui-icon ">&#xe67c;</i><span style="color: whitesmoke">上传主图</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required"><span style="color: whitesmoke">菜品名称</span></label>
+        <div class="layui-input-inline">
+            <input type="text" name="menuName" lay-verify="required|clength" lay-reqtext="输入菜品名称"  placeholder="输入菜品名称" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">菜品价格</label>
+        <div class="layui-input-inline">
+            <input type="text" name="price" lay-verify="required|clength" lay-reqtext="输入菜品价格"  placeholder="输入菜品价格" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">负责人</label>
+        <div class="layui-input-inline">
+            <input type="text" name="principal"   placeholder="请输入负责人" value="" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">菜品描述</label>
+        <div class="layui-input-inline">
+            <textarea name="menuDescription" placeholder="请输入描述信息" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">发布时间</label>
+        <div class="layui-input-inline">
+            <input type="text" id="date" name="creatTime" lay-verify="datetime" readonly placeholder="设置发布时间" autocomplete="off" value="" class="layui-input">
+        </div>
+    </div>
+
+    <!--    <div class="layui-form-item">-->
+    <!--        <label class="layui-form-label required">权限</label>-->
+    <!--        <div class="layui-input-block">-->
+    <!--            <input type="radio" name="userType" value="3" title="考生" checked="">-->
+    <!--            <input type="radio" name="userType" value="2" title="教师">-->
+    <!--            <input type="radio" name="userType" value="1" title="管理员">-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">发布菜品</button>
+        </div>
+    </div>
+</div>
+<script src="../../component/layui/layui.js"></script>
+<script src="../../component/pear/pear.js"></script>
+<script src="../../config/api.config.js"></script>
+<script>
+    const token = sessionStorage.token
+    // console.log(token)
+    layui.use(['form','upload','context','laydate'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            upload = layui.upload,
+            laydate = layui.laydate;
+            $ = layui.$;
+        const context = layui.context;
+        var hostUrl = context.get("hostUrl")
+
+        //日期
+        laydate.render({
+            elem: '#date'
+            ,theme: '#f00'
+            ,type: 'datetime'
+        });
+        form.verify({
+            clength: function (value) {
+                var i,sum;
+                sum=0;
+                for(i=0;i<value.length;i++){
+                    if ((value.charCodeAt(i)>=0) && (value.charCodeAt(i)<=255))
+                        sum=sum+1;
+                    else
+                        sum=sum+2;
+                }
+                if (sum > 50) {
+                    return '菜品名称最多只能50个字符或者25个中文字';
+                }
+            }
+        });
+        upload.render({
+            elem: '#pic' //绑定元素
+            , url: hostUrl+"/file/upload.do" //上传接口
+            ,acceptMime: 'image/*'
+            ,exts: 'jpg|png|jpeg|gif'
+            ,headers:{'token':token}
+            , done: function (res) {
+                //上传完毕回调
+                if (res.code == 0) {
+                    $("#pic_url").val(res.data);
+                    $(".pic_url").attr("src", hostUrl+res.data);
+                } else {
+                    layer.msg(res.info, function () { })
+                }
+            }, error: function () {
+                layer.msg("上传异常");
+            }
+        });
+        //监听提交
+        form.on('submit(saveBtn)', function (data) {
+            console.log(data.field)
+            var index = layer.alert("确认发布吗？", {
+                title: '最终的提交信息'
+            }, function () {
+                $.ajax({
+                    url:hostUrl+'/menu/insertTeacherMenu.do',
+                    //contentType: "application/json;charset=UTF-8",
+                    method:'post',
+                    crossDomain: true,
+                    async:false,
+                    headers:{'token':token},
+                    data:data.field,
+                    dataType:'JSON',
+                    success:function(res){
+                        console.log(res)
+                        layer.msg(res.message,{
+                            time: 1000, //0.8s后自动关闭
+                            icon:1,
+                            end:function () {
+                                var iframeIndex = parent.layer.getFrameIndex(window.name);
+                                parent.layer.close(iframeIndex);
+                                parent.layui.table.reload("user-table");
+                            }
+                        });
+                    },error:function (res) {
+                    }
+                }) ;
+                // 关闭弹出层
+                layer.close(index);
+
+
+
+            });
+
+            return false;
+        });
+
+    });
+</script>
+</body>
+</html>

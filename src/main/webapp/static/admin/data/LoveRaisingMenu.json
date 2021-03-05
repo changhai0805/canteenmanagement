@@ -1,0 +1,57 @@
+[
+	{
+		"id": "activity",
+		"title": "菜单管理",
+		"icon": "layui-icon layui-icon-auz",
+		"type": 0,
+		"href": "",
+		"children": [{
+			"id": "success",
+			"title": "教职工菜单发布",
+			"icon": "layui-icon layui-icon-face-smile",
+			"type": 1,
+			"openType": "_iframe",
+			"href": "view/activity/release.html"
+		}
+		]
+	},
+	{
+		"id": "system",
+		"title": "系统管理",
+		"icon": "layui-icon layui-icon-set-fill",
+		"type": 0,
+		"href": "",
+		"children": [{
+			"id": 601,
+			"title": "用户管理",
+			"icon": "layui-icon layui-icon-face-smile",
+			"type": 1,
+			"openType": "_iframe",
+			"href": "view/system/user.html"
+		}
+
+		]
+	},
+	{
+		"id": "news",
+		"title": "投诉与建议查看",
+		"icon": "layui-icon layui-icon-face-cry",
+		"type": 1,
+		"href": "view/news/news.html"
+	},
+	{
+		"id": "notice",
+		"title": "新闻管理",
+		"icon": "layui-icon layui-icon-template-1",
+		"type": 0,
+		"href": "",
+		"children": [{
+			"id": 701,
+			"title": "新闻列表",
+			"icon": "layui-icon layui-icon-face-smile",
+			"type": 1,
+			"openType": "_iframe",
+			"href": "view/notice/notice.html"
+		}]
+	}
+]
