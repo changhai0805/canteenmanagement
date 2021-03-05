@@ -1,6 +1,8 @@
 package com.canteenManagement.controller;
 
 import com.canteenManagement.pojo.MenuInfo;
+import com.canteenManagement.pojo.MenuInfo2;
+import com.canteenManagement.service.MenuInfo2Service;
 import com.canteenManagement.service.MenuInfoService;
 import com.canteenManagement.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,8 @@ public class MenuInfoController {
 
     @Autowired
     private MenuInfoService menuInfoService;
+    @Autowired
+    private MenuInfo2Service menuInfo2Service;
     /**
      * 查看列表
      * @return
@@ -22,6 +26,18 @@ public class MenuInfoController {
     @CrossOrigin
     public CommonResult getStudentMenu(int window){
         return menuInfoService.getStudentMenu(window);
+
+    }
+    @RequestMapping("/insertTeacherMenu.do")
+    @CrossOrigin
+    public CommonResult insertTeacherMenu(MenuInfo2 menuInfo2){
+        boolean save = menuInfo2Service.save(menuInfo2);
+        if(save){
+            return new CommonResult(200,"操作成功",1);
+        }else {
+            return new CommonResult(500,"操作失败",0);
+        }
+
 
     }
     @RequestMapping("/listTeacherMenu.do")
