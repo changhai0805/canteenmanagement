@@ -41,6 +41,11 @@ public class BuyInfoController {
             return new CommonResult(500,"failed",0);
         }
     }
+    @RequestMapping("/updateStatus.do")
+    public CommonResult updateBuyInfo(int id,String status){
+
+         return buyInfoService.updateStatus(id,status);
+    }
     @RequestMapping("/delete.do")
     public CommonResult deleteBuyInfo(int id){
 
