@@ -32,7 +32,13 @@ public class BuyInfoServiceImpl extends ServiceImpl<BuyInfoMapper, BuyInfo> impl
         if(status.equals("待采购")){
             status="已采购";
         }
-        return new CommonResult(200,"success",buyInfoMapper.updateStatus(id,status));
+        int result = buyInfoMapper.updateStatus(id,status);
+        if(result==1){
+            return new CommonResult(200,"success",1);
+        }else {
+            return new CommonResult(500,"failed",0);
+        }
+
     }
 
 }
