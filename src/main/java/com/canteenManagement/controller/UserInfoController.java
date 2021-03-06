@@ -35,4 +35,9 @@ public class UserInfoController {
 
         return userInfoService.updateUserInfo(userInfo);
     }
+    @RequestMapping("/updatePassword.do")
+    public CommonResult updatePassword(UserInfo userInfo){
+
+        return userInfoService.updatePassword(userInfo);
+    }
 }

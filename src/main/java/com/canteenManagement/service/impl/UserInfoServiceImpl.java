@@ -129,4 +129,14 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     public CommonResult updateUserInfo(UserInfo userInfo) {
         return new CommonResult(200,"success",userInfoMapper.updateById(userInfo));
     }
+
+    @Override
+    public CommonResult updatePassword(UserInfo userInfo) {
+        int result = userInfoMapper.updatePassword(userInfo);
+        if(result==1){
+            return new CommonResult(200,"修改成功！",1);
+        }else {
+            return new CommonResult(200,"修改失败！",0);
+        }
+    }
 }

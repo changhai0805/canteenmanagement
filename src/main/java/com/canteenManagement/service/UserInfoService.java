@@ -22,4 +22,5 @@ public interface UserInfoService extends IService<UserInfo> {
     boolean checkuserId(String userId);
     CommonResult findUserInfo(int id);
     CommonResult updateUserInfo(UserInfo userInfo);
+    CommonResult updatePassword(UserInfo userInfo);
 }

@@ -29,4 +29,6 @@ public interface UserInfoMapper extends BaseMapper<UserInfo> {
     Map<String,Object> selectUserInfoByuserIdAndPassword(@Param("userId")String userId, @Param("password")String password);
     @Select("select * from userinfo where user_id=#{userId} and password=#{password}")
     UserInfo checkPassword(@Param("userId")String userId, @Param("password")String password);
+    @Update("update userinfo set password=#{password} where user_id=#{userId}")
+    int updatePassword(UserInfo userInfo);
 }
