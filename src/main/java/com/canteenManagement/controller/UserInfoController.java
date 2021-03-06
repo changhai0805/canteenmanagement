@@ -36,8 +36,8 @@ public class UserInfoController {
         return userInfoService.updateUserInfo(userInfo);
     }
     @RequestMapping("/updatePassword.do")
-    public CommonResult updatePassword(UserInfo userInfo){
+    public CommonResult updatePassword(int id,String password){
 
-        return userInfoService.updatePassword(userInfo);
+        return userInfoService.updatePassword(id,password);
     }
 }
