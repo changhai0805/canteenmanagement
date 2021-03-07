@@ -5,6 +5,7 @@ import com.canteenManagement.pojo.MenuInfo2;
 import com.canteenManagement.service.MenuInfo2Service;
 import com.canteenManagement.service.MenuInfoService;
 import com.canteenManagement.util.CommonResult;
+import com.canteenManagement.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,6 +56,7 @@ public class MenuInfoController {
     @RequestMapping("/insert.do")
     @CrossOrigin
     public CommonResult insert(MenuInfo menuInfo){
+        menuInfo.setCreatTime(Utils.getDate());
         boolean save = menuInfoService.save(menuInfo);;
         if(save){
             return new CommonResult(200,"success",1);
