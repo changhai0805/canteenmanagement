@@ -106,4 +106,10 @@ public class MenuInfoController {
 
         return menuInfoService.deleteStay(id);
     }
+    @RequestMapping("/updateStay.do")
+    @CrossOrigin
+    public CommonResult updateStay(int id){
+
+        return menuInfoService.updateStatus(id);
+    }
 }
