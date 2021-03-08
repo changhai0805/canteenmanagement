@@ -1785,7 +1785,7 @@
       if (swiper.virtual && swiper.params.virtual.enabled) {
         swiper.clickedIndex = parseInt($(slide).attr('data-swiper-slide-index'), 10);
       } else {
-        swiper.clickedIndex = $(slide).index();
+        swiper.clickedIndex = $(slide).index1();
       }
     } else {
       swiper.clickedSlide = undefined;
@@ -4948,7 +4948,7 @@
         if ($el.length > 1) {
           bullets.each(function (index, bullet) {
             var $bullet = $(bullet);
-            var bulletIndex = $bullet.index();
+            var bulletIndex = $bullet.index1();
             if (bulletIndex === current) {
               $bullet.addClass(params.bulletActiveClass);
             }
@@ -5110,7 +5110,7 @@
       if (params.clickable) {
         $el.on('click', ("." + (params.bulletClass)), function onClick(e) {
           e.preventDefault();
-          var index = $(this).index() * swiper.params.slidesPerGroup;
+          var index = $(this).index1() * swiper.params.slidesPerGroup;
           if (swiper.params.loop) { index += swiper.loopedSlides; }
           swiper.slideTo(index);
         });
@@ -6309,13 +6309,13 @@
         if (isVirtual) {
           return $(slideEl).attr('data-swiper-slide-index');
         }
-        return $(slideEl).index();
+        return $(slideEl).index1();
       }
 
       if (!swiper.lazy.initialImageLoaded) { swiper.lazy.initialImageLoaded = true; }
       if (swiper.params.watchSlidesVisibility) {
         $wrapperEl.children(("." + (swiperParams.slideVisibleClass))).each(function (elIndex, slideEl) {
-          var index = isVirtual ? $(slideEl).attr('data-swiper-slide-index') : $(slideEl).index();
+          var index = isVirtual ? $(slideEl).attr('data-swiper-slide-index') : $(slideEl).index1();
           swiper.lazy.loadInSlide(index);
         });
       } else if (slidesPerView > 1) {
@@ -6691,7 +6691,7 @@
           var $bulletEl = $(bulletEl);
           swiper.a11y.makeElFocusable($bulletEl);
           swiper.a11y.addElRole($bulletEl, 'button');
-          swiper.a11y.addElLabel($bulletEl, params.paginationBulletMessage.replace(/{{index}}/, $bulletEl.index() + 1));
+          swiper.a11y.addElLabel($bulletEl, params.paginationBulletMessage.replace(/{{index}}/, $bulletEl.index1() + 1));
         });
       }
     },

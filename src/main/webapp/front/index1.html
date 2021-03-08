@@ -1,0 +1,433 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+<title>后勤饮食服务中心信息管理</title>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/swiper.js"></script>
+<link rel="stylesheet" href="css/iconfont.css">
+<link rel="stylesheet" href="css/swiper.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script type="text/javascript">
+      $(function () {
+        $('.top .pcnone').click(function () {
+          $('.top').addClass('phone');
+          $('header,body').addClass('ph_fixed');
+        })
+        $('.logo .meau').click(function () {
+          $('header .nav').addClass('show');
+        })
+
+        $('header .nav .icon-zuo').click(function () {
+          $('header .nav').removeClass('show sea');
+        })
+        $('.logo .search').click(function () {
+          $('.nav').addClass('show sea');
+        })
+      })
+    </script>
+<section class="top" >
+  <div class="cont">
+    <div class="l">
+      <自觉遵守饭堂纪律,养成饮食卫生习惯>
+    </div>
+    <div class="r phone" style=""><a class="lang" href="javascript:;">
+      <ul>
+        <li onclick="myFunction()">注销登录</li>
+        <li onclick="myFunctionupdate()">修改密码</li>
+      </ul>
+      <i class="xiala iconfont icon-xia"></i> </a>
+    </div>
+    <span class="r" id="user"></span>
+    <i class="iconfont icon-diqiu r" style="display: inline-block;margin-right: 6px"></i>
+    <i class="pcnone iconfont icon-guanbi" ></i>
+  </div>
+</section>
+<header>
+  <div class="cont">
+    <div class="logo l">
+<!--      <img class="l" src="img/logo7.png" alt="">-->
+      <div class="pcnone r">
+        <i class="iconfont icon-liebiao meau"></i>
+        <i class="iconfont icon-search search"></i>
+      </div>
+    </div>
+    <div class="nav r">
+      <div class="pcnone tit"><i class="iconfont icon-zuo"></i>目录</div>
+      <div class="navs"> <a id="index" class="act" >首页</a> <a id="brand" >中心介绍</a> <a id="activity" class="choukuancaidan">团体用餐预定</a><a id="teachter" >教工餐菜单</a> <a  id="gerenzhongxin">新闻中心</a>  <a  id="pinlun">餐厅风貌</a><a  id="contact" >投诉与建议</a> </div>
+      <div class="pcnone log">
+        <a href="../login.html" class="hidelogin">登录</a>
+        <a href="register.html" class="hidelogin">注册</a>
+        <a href="/">注销登录</a>
+        <a href="/">修改密码</a>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="imgBox">
+    <img src="img/bannersfour.jpg" class="img-slide img1" style="width:100%;height:500px">
+  <img src="img/bannersfive.jpg" class="img-slide img2" style="width:100%;height:500px">
+</section>
+<section style="height: 1000px" style="text-align: center">
+  <div style="position: relative;text-align: center;height: 300px;" >
+    <h1 style="text-align: center;padding-top: 60px;font-size: 34px;color: rgb(255,87,34);border-bottom: 5px solid rgb(255,87,34);width: 200px;margin: 0 auto;padding-bottom: 20px">关于我们</h1>
+    <p style="width: 800px;
+    height: 60px;
+    padding-top: 40px;
+    margin: 0px auto;
+    font-size: 24px;
+    color: #aaa;
+    line-height: 46px;">一个享受健康美食地方，在这里我们可以发现有许多的特色美食，让我大家,一起来留住绿色，留住美丽，为了我们的家更美好！</p>
+  </div>
+  <div style="height: 700px;background: #eee">
+    <h1 style="text-align: center;padding-top: 60px;font-size: 34px;color: rgb(255,87,34);border-bottom: 5px solid rgb(255,87,34);width: 200px;margin: 0 auto;padding-bottom: 20px">特性服务</h1>
+    <ul class="wrap-uu" style="width: 1200px;margin: 30px auto;">
+      <li style="background: url('img/foodsss.jpg') no-repeat center;border-radius: 10px">
+      </li>
+      <li class="one" >
+        <h2>美味的食物</h2>
+        <p>这里的食物既美味又有营养，美食多多，种类丰富，欢迎您的到来！</p>
+      </li>
+      <li style="width: 30%;background: url('img/foods.jpeg') no-repeat center;border-radius: 10px">
+      </li>
+      <li class="one" >
+        <h2>各种饮料</h2>
+        <p>闲暇的时光与朋友品尝一杯咖啡，聊聊家长里短也是一种不错的方式！</p>
+      </li>
+      <li  style="width: 30%;background: url('img/foodsss.jpg') no-repeat center;border-radius: 10px">
+      </li>
+      <li class="one" >
+        <h2>您的认可</h2>
+        <p>我们专致于服务，以最好的姿态服务您们，您肯定是对我们最大的支持！</p>
+      </li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h1 style="text-align: center;padding-top: 60px;font-size: 34px;color: rgb(255,87,34);border-bottom: 5px solid rgb(255,87,34);width: 200px;margin: 0 auto;padding-bottom: 20px">主打美食</h1>
+  <div style="margin-top: 20px;height: 400px;width: 100%;background: url('img/footerbanner.jpg') no-repeat center; background-size: 100% auto;">
+    <ul class="min-width">
+      <li>
+        <div class="news-img">
+          <img class="imgbig" src="img/pu1.jpg" style="width: 200px;height:200px;border-radius:50%;transition: .5s ease;">
+        </div>
+        <h4 style="color: #fff;font-size: 18px">特色鸡排饭</h4>
+        <p>我们有自己的特色菜，种类繁多，有家乡菜、农家菜、也有各地著名美食。</p>
+      </li>
+      <li>
+        <div class="news-img">
+          <img class="imgbig"  src="img/pu2.jpg" style="width: 200px;height:200px;border-radius:50%;transition: .5s ease;" >
+        </div>
+        <h4 style="color: #fff;font-size: 18px">特色鲜虾饭</h4>
+        <p>我们有自己的特色菜，种类繁多，有家乡菜、农家菜、也有各地著名美食。</p>
+      </li>
+      <li>
+        <div class="news-img">
+          <img class="imgbig"  src="img/pu3.jpg"  style="width: 200px;height:200px;border-radius:50%;transition: .5s ease;">
+        </div>
+        <h4 style="color: #fff;font-size: 18px">大气松鼠鱼</h4>
+        <p>我们有自己的特色菜，种类繁多，有家乡菜、农家菜、也有各地著名美食。</p>
+      </li>
+    </ul>
+  </div>
+</section>
+    <script type="text/javascript">
+      $(function() {// 初始化内容
+        if(sessionStorage.getItem("role") === '学生'){
+          console.log("aaa")
+          $('#teachter').css('display','none')
+        }
+      });
+      function autoScroll(obj){
+              $(obj).find("ul").animate({
+                marginTop : "-84px"
+              },1000,function(){
+                $(this).css({marginTop : "0px"}).find("li:first").appendTo(this);
+              })
+            }
+            $(function(){
+              var scroll=setInterval('autoScroll(".maquee")',1500);
+               $(".maquee").hover(function(){
+                console.log("aaa");
+                clearInterval(scroll);
+               },function(){
+                scroll=setInterval('autoScroll(".maquee")',1500);
+               });
+            });
+
+            window.onload = function (){
+
+              $("#index").click(function (){
+                window.location.href = 'index1.html'
+              })
+              $("#brand").click(function (){
+                window.location.href = 'brand.html'
+              })
+              $("#activity").click(function (){
+                window.location.href = 'activity.html'
+              })
+              $("#gerenzhongxin").click(function (){
+                window.location.href = 'shop.html'
+              });
+              $("#teachter").click(function (){
+                window.location.href = 'teachter.html'
+              });
+              $("#investment").click(function (){
+                window.location.href = 'investment.html'
+              });
+              $("#recruitment").click(function (){
+                window.location.href = 'recruitment.html'
+              });
+              $("#pinlun").click(function (){
+                window.location.href = 'pinlun.html'
+              });
+              $(".choukuancaidan").click(function (){
+                window.location.href = 'activity.html'
+                // if (sessionStorage.getItem("uesrname") !== null){
+                //     window.location.href = 'activity.html'
+                // }else{
+                //     alert("请登录！！")
+                //     window.location.href = '../login.html'
+                // }
+              });
+              $("#contact").click(function (){
+                window.location.href = 'contact.html'
+              })
+              if (sessionStorage.getItem("uesrname") !== null){
+                $(".hidelogin").css('display','none');
+                $(".hidelogin").css('display','none');
+                $("#user").html(sessionStorage.getItem("uesrname"))
+                console.log(sessionStorage.getItem("uesrname"))
+              }else{
+                $("#user").html("登录")
+                if ( $("#user").html() == '登录'){
+                  $('#user').css("cursor","pointer")
+                  $('#user').click(function (){
+                    window.location.href = '../login.html'
+                  })
+                }else{
+                  console.log("用户已登录")
+                }
+              };
+              var token = sessionStorage.getItem("token")
+              $.ajax({
+                type:'get',
+                url:'http://localhost:8080/notice/list.do',
+                dataType:'json',
+                headers:{"token":token},
+                success:function (result){
+                  console.log(result)
+                  if (result.code == 0){
+                     $(".activelist").append("<h1 style='z-index: 9999;text-align: center;margin:20px 0px'>"+result.data[0].newsTitle+"</h1><p>"+result.data[0].newsDescription+"</p>")
+                      }
+                }
+              });
+              //主页筹款展示
+              $.ajax({
+                type:'post',
+                url:'http://localhost:8080/raisinginfo/selectPassRaisingInPage.do',
+                dataType:'json',
+                headers:{"token":token},
+                data: {'currentPage':1,'pageSize':4},
+                success:function (result){
+                  console.log(result)
+                  if (result.code == 200){
+                    $.each(result.obj.pageData,function (index,elem){
+                     $(".choukuanlist").append("<li style='width: 25%;float: left;text-align: center'><a><img style='width: 80%;height:200px;vertical-align: center;border-radius: 10px'  src='http://localhost:8080"+elem.firstUrl+"'></a><h5 style='font-size: 16px;width:80%;margin: 0 auto'>"+elem.raisingTitle+"</h5></li>")
+                    })
+                  }
+                }
+              });
+              //活动展示
+              $.ajax({
+                type:'post',
+                url:'http://localhost:8080/activitiesinfo/selectDoingActivities.do',
+                dataType:'json',
+                headers:{"token":token},
+                data: {'currentPage':1,'pageSize':4},
+                success:function (result){
+                  if (result.code == 200){
+                    $.each(result.obj.pageData,function (index,elem){
+                      $(".choukuanlisttwo").append("<li style='width: 25%;float: left;text-align: center'><a><img  style='width: 80%;height:200px;vertical-align: center;border-radius: 10px' src='http://localhost:8080"+elem.firstUrl+"'></a><h5 class='fontsizea' style='font-size: 16px;width: 80%;margin: 0 auto'>"+elem.activityTitle+"</h5></li>")
+                    })
+                  }
+                }
+              });
+            }
+            function myFunction() {
+              var txt;
+              if (confirm("是否要退出登录")) {
+                txt = "您按了确定";
+                sessionStorage.removeItem("role");
+                sessionStorage.removeItem("uesrname");
+                sessionStorage.removeItem("id");
+                // sessionStorage.removeItem("role");
+                window.location.href = '../login.html'
+              } else {
+                txt = "您按了取消";
+              }
+            };
+            function myFunctionupdate() {
+              var txt;
+              var id = sessionStorage.getItem("id");
+              var password = prompt("请输入密码：");
+              var passwordtwo = prompt("请再次输入密码：");
+              var parms = {'id': id, 'password': password}
+              if (password == null || password == "" ||passwordtwo == null || passwordtwo == "") {
+                alert("密码不能为空")
+              } else if(password !=passwordtwo ){
+                alert("俩次输入密码不一致")
+              }else{
+                $.ajax({
+                  type:'post',
+                  url:'http://localhost:8080/userinfo/updatePassword.do',
+                  data: {id:id,password:password},
+                  success:function (result){
+                    console.log(result)
+                    if (result.code == 0){
+                      alert("密码修改成功，请重新登录")
+                      sessionStorage.removeItem("uesrname");
+                      sessionStorage.removeItem("id");
+                      window.location.href='../login.html'
+                    }
+                  }
+                })
+              }
+            }
+    </script>
+
+    <footer>
+      <div class="footer" style="background: rgb(255,137,100)">
+        <div >
+          <ul>
+            <li><a href="">关于我们</a></li>
+            <li><a href="">服务条款</a></li>
+            <li><a href="">新手指南</a></li>
+            <li><a href="">个人中心</a></li>
+            <li><a href="">联系我们</a></li>
+            <li><a href="">友情链接</a></li>
+          </ul>
+          <p class="center">版权所有 © 后勤饮食服务中心. 2020 @ CopyRight</p>
+        </div>
+      </div>
+    </footer>
+<script type="text/javascript">
+      $(function () {
+        $('.xiala').click(function () {
+          $('.lang ul').toggle();
+        })
+        $('.lang ul li').click(function () {
+          var text =  $(this).html();
+          $('.lang span').html(text);
+          $('.lang ul').hide();
+        })
+      })
+    </script>
+    <script>
+      $("#gerenzhongxin").click(function (){
+        console.log("aaa")
+        if (sessionStorage.getItem("uesrname") !== null){
+          username = $('#username').val()
+          password = $('#password').val()
+          $.ajax({
+            type:'post',
+            // url:baseURL+'/userinfo/login',
+            url:'http://localhost:8080/userinfo/login.do',
+            dataType:'json',
+            headers:{'userName': username, 'password': password},
+            success:function (result){
+              console.log(result)
+              if (result.code == 200){
+                sessionStorage.setItem("uesrname", result.userName);
+                sessionStorage.setItem("token", result.token);
+                window.location.href='index1.html'
+                // $(".hidelogin").css('display','none')
+              }
+            }
+          })
+        }else{
+        }
+
+      })
+    </script>
+    <script type="text/javascript">
+      var index=0;
+      //改变图片
+      function ChangeImg() {
+          index1++;
+          var a=document.getElementsByClassName("img-slide");
+          if(index1>=a.length) index1=0;
+          for(var i=0;i<a.length;i++){
+              a[i].style.display='none';
+          }
+          a[index1].style.display='block';
+      }
+      //设置定时器，每隔两秒切换一张图片
+      setInterval(ChangeImg,4000);
+  </script>
+    <Style>
+    .imgBox{
+            border-top: 2px solid cadetblue;
+            width: 100%;
+            height: 500px;
+
+        }
+
+        .imgBox img{
+            width: 60%;
+            height: 300px;
+            margin: 0 auto;
+
+        }
+
+        .img1{
+            display: block;
+        }
+
+        .img2{
+            display: none;
+        }
+      /*body{*/
+      /*  padding: 0px;*/
+      /*  margin: 0px;*/
+      /*}*/
+    .wrap-uu>li{
+      width: 30%;
+      height: 200px;
+      float: left;
+      margin: 20px;
+    }
+    .wrap-uu>li>h2{
+      text-align: center;
+      padding-bottom: 10px;
+      color:  rgb(255,87,34);
+    }
+      .one{
+        cursor: pointer;
+        background: #fff;
+        border-radius: 10px
+      }
+      .one:hover{
+        background: rgb(189,208,1);
+      }
+      .min-width{
+        margin: 0 auto;
+
+      }
+      .min-width>li{
+        float: left;
+        width: 30%;
+        margin: 20px;
+        text-align: center;
+        padding-top: 26px;
+      }
+      .imgbig:hover{
+      transform:scale(1.1)
+    }
+    </Style>
+</body>
+</html>

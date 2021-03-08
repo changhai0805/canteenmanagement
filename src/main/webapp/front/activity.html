@@ -5,7 +5,7 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <meta name="renderer" content="webkit">
-    <title>公益活动</title>
+    <title>教工餐菜单</title>
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/js.js"></script>
     <script src="js/layui.js"></script>
@@ -37,7 +37,7 @@
     <section class="top">
         <div class="cont">
             <div class="l">
-                <只要人人的献出一点爱,世上就变成美好的人间>
+                <自觉遵守饭堂纪律,养成饮食卫生习惯>
             </div>
             <div class="r phone" ><a class="lang" href="javascript:;">
 
@@ -46,7 +46,6 @@
                     <li onclick="myFunctionupdate()">修改密码</li>
                 </ul>
                 <i class="xiala iconfont icon-xia"></i> </a>
-                <a href="register.html"><i class="iconfont icon-zhuce reg"></i>注册</a>
             </div>
             <span class="r" id="user" ></span>
             <i class="iconfont icon-diqiu r" style="display: inline-block;margin-right: 6px"></i>
@@ -56,135 +55,47 @@
     <header>
       <div class="cont">
         <div class="logo l">
-          <img class="l" src="img/logo7.png" alt="">
           <div class="pcnone r">
             <i class="iconfont icon-liebiao meau"></i>
             <i class="iconfont icon-search search"></i>
           </div>
         </div>
-        <div class="nav r">
-          <div class="pcnone tit"><i class="iconfont icon-zuo"></i>目录</div>
-            <div class="navs"> <a id="index" >首页</a> <a id="brand" >公益活动</a> <a id="activity" class="act" >筹款菜单</a> <a id="gerenzhongxin">个人中心</a>  <a id="contact">联系我们</a> </div>
-            <div class="pcnone log">
-            <a href="../login.html" class="hidelogin">登录</a>
-            <a href="register.html" class="hidelogin">注册</a>
-            <a href="/">注销登录</a>
-            <a href="/">修改密码</a>
+          <div class="nav r">
+              <div class="pcnone tit"><i class="iconfont icon-zuo"></i>目录</div>
+              <div class="navs"> <a id="index"  >首页</a> <a id="brand" >中心介绍</a> <a id="activity" class="choukuancaidan act">团体用餐预定</a><a id="teachter" >教工餐菜单</a> <a  id="gerenzhongxin">新闻中心</a>  <a  id="pinlun">餐厅风貌</a><a  id="contact" >投诉与建议</a> </div>
+              <div class="pcnone log">
+                  <a href="../login.html" class="hidelogin">登录</a>
+                  <a href="register.html" class="hidelogin">注册</a>
+                  <a href="/">注销登录</a>
+                  <a href="/">修改密码</a>
+              </div>
           </div>
-        </div>
       </div>
     </header>
-    <section class="zbanner" style="position: relative">
-        <div class="faqichoukuan" style="position: absolute;width: 150px;height: 50px;line-height: 50px;background:orangered;text-align: center;border-radius: 4px;left: 50%;margin-left:-75px;bottom: 30px;cursor: pointer">发起筹款</div>
-        <div class="layui-form layuimini-form wenjianshangchuan" style="display: none;width: 25%;height: auto;position: absolute;left: 20%;border-radius: 6px;top: 500px">
-            <!-- <input  type="text" name="userId" style="display:none"> -->
-                <div class="layui-form-item">
-                    <label class="layui-form-label"></label>
-
-                </div>
-
-                <div class="layui-form-item" style="width:800px">
-                    <label class="layui-form-label">主图</label>
-                    <div class="layui-input-inline" style="width:500px;display:inline-block">
-                        <input type="text" name="firstUrl" id="pic_url" placeholder="不上传就留空" autocomplete="off" class="layui-input">
-                    </div>
-                    <div class="layui-word-aux"style="width:150px;display:inline-block" >
-                        <button type="button" class="layui-btn layui-btn-normal" id="pic">
-                            <i class="layui-icon ">&#xe67c;</i>上传主图
-                        </button>
-                    </div>
-                </div>
-
-                <div class="layui-form-item" style="width:800px">
-                    <label class="layui-form-label required">筹款标题</label>
-                    <div class="layui-input-inline" style="width:500px;display:inline-block">
-                        <input type="text" name="raisingTitle" lay-verify="required" placeholder="输入筹款标题" value="" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-form-item" style="width:800px">
-                    <label class="layui-form-label required">筹款描述</label>
-                    <div class="layui-input-inline" style="width:500px;display:inline-block">
-                        <input type="text" name="raisingDescription"   placeholder="请输入描述信息" value="" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-form-item" style="width:800px">
-                    <label class="layui-form-label required">筹款金额</label>
-                    <div class="layui-input-inline" style="width:500px;display:inline-block">
-                        <input type="number" name="targetAmount" lay-verify="required"  placeholder="请输入金额" value="" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item" style="width:800px">
-                    <label class="layui-form-label">银行卡号</label>
-                    <div class="layui-input-inline" style="width:500px;display:inline-block">
-                        <input type="number" name="bankNum"  placeholder="请输入银行卡号" value="" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item" style="width:800px">
-                    <label class="layui-form-label">筹款人姓名</label>
-                    <div class="layui-input-inline" style="width:500px;display:inline-block">
-                        <input type="text" name="raisingName"  placeholder="输入筹款人姓名" value="" class="layui-input">
-                    </div>
-                </div>
-                <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;width:560px">
-                    <legend>上传副图</legend>
-                </fieldset>
-
-                <div class="layui-form-item">
-                    <div class="layui-input-inline">
-                        <input class="layui-hide" name="imageUrls" type="text" id="imagurls">
-                    </div>
-                    <blockquote class="layui-input-block layui-elem-quote layui-quote-nm" style="margin-top: 10px;width:450px">
-
-            <!--            <label class="layui-form-label required">预览图：</label>-->
-                        <div class="layui-upload-list" id="demo2"> <button type="button" class="layui-btn" id="test2">+</button></div>
-                    </blockquote>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-input-block">
-                        <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
-                    </div>
-                </div>
-            </div>
+    <section class="hiden" style="height: 800px;display: none;overflow: hidden;">
+        <div style="color: #f00;margin-top:270px"></div>
+        <p style="width: 400px;text-align: left;font-size: 20px;font-weight: bold;margin-left: 20px">预定信息：</p>
+        <label style="padding-left: 20px">窗口号：</label><input class="windowvalue" type="text" placeholder="请输入窗口号" style="width: 400px;height: 50px;margin: 20px 0px"><br>
+        <label style="padding-left: 20px">就餐人数：</label><input class="orderNumvalue" type="text" placeholder="请输入就餐人数" style="width: 400px;height: 50px;margin: 20px 0px"><br>
+        <label style="padding-left: 20px">预约人：</label><input class="orderNamevalue" type="text" placeholder="请输入预约人" style="width: 400px;height: 50px;margin: 20px 0px"><br>
+        <label style="padding-left: 20px">预订电话：</label><input class="orderPhonevalue" type="text" placeholder="请输入预订电话" style="width: 400px;height: 50px;margin: 20px 0px"><br>
+        <label style="padding-left: 20px">到达时间：</label><input class="getTimevalue" type="time" placeholder="请输入达到时间" style="width: 400px;height: 50px;margin: 20px 0px"><br>
+        <button style="width: 120px;height:50px;line-height: 50px;margin-left:120px;display: inline-block" onclick="exit()">取消</button>
+        <button style="width: 120px;height:50px;line-height: 50px;display: inline-block;margin-left: 20px" onclick="btns()">确定</button>
     </section>
-    <section class="activity" >
-      <div class="cont">
-        <div class="act_ul">
-        </div>
-          <div id="pageParent" class="pageParent"></div>
-      </div>
+<div style="clear: both"></div>
+    <section class="zbanner" style="position: relative;background: url('img/bannersfour.jpg') no-repeat center;background-size: cover" >
+        <button onclick="windowbtn()" style="position: absolute;top: 380px;color:orangered;left:50%;width: 100px;height: 50px;cursor: pointer">预定</button>
     </section>
-    <section style="display:none;padding-top:100px;padding-bottom:30px;height:750px" class="showplay">
-      <div style="width:100%;height:auto;text-align:center">
-        <h1 style="font-weight:bold" class="choukauntitle"></h1>
-        <div style="padding-top:20px">
-          <span style="color:black;font-weight:bold;padding-right:14px">被资助对象：</span><span class="raisingName"></span>
-        </div>
-        <div  style="padding-top:20px;margin-bottom:10px">
-          <span style="color:coral">
-                急需筹款（元）|
-            <span style="color:#444;font-weight:bold" class="jxcksum"></span>
-          </span>
-          <span  style="color:coral;padding-left:14px">
-                已经筹到 &nbsp;|
-              <span style="color:#444;font-weight:bold" class="yjcdsum"></span>
-          </span>
-        </div>
-          <div class="futu">
-              </div>
-        <div style="width:60%;margin:0 auto;padding-bottom:30px">
-          <h4 style="font-size:20px;font-weight:bold;padding-top:20px">求助人故事</h4>
-          <p style="padding-top:20px" class="raisingDescription">
-          </p>
-
-        </div>
-        <div>
-            <input class="moneys" style="width:500px;margin-bottom:20px;height:50px" type="text" placeholder="请输入捐款金额"  />
-          </div>
-        <a  class="querenjuankuan"  style="display: block;width:150px;height:50px;text-align:center;line-height:50px;background:chocolate;border-radius:10px;margin:0 auto;cursor:pointer">确认捐款</a>
-      </div>
+    <section class="activity" style="height: 1000px;" >
+        <p style="font-size: 18px;font-weight: bold">一号窗口</p>
+      <ul class="studentsmenu1"></ul>
+        <p style="font-size: 18px;font-weight: bold">二号窗口</p>
+        <ul class="studentsmenu2" style="float: left"></ul>
+        <p style="font-size: 18px;font-weight: bold">三号窗口</p>
+        <ul class="studentsmenu3"></ul>
     </section>
+    <div style="clear: both"></div>
     <footer class="hidefooter">
         <div class="footer">
             <div>
@@ -196,11 +107,57 @@
                     <li><a href="">联系我们</a></li>
                     <li><a href="">友情链接</a></li>
                 </ul>
-                <p class="center">版权所有 © 后勤饮食服务中心管理系统. 2020@CopyRight</p>
+                <p class="center">版权所有 © 爱心筹. 2020@CopyRight</p>
             </div>
         </div>
     </footer>
     <script>
+        function windowbtn(){
+            $('.zbanner').css('display','none')
+            $('.activity').css('display','none')
+            $('.hiden').css('display','block')
+        };
+        function exit(){
+            console.log("aaa")
+            $('.zbanner').css('display','block')
+            $('.activity').css('display','block')
+            $('.hiden').css('display','none')
+            window.location.href = 'activity.html'
+        };
+        function btns(){
+            var window = $(".windowvalue").val()
+            var orderNum = $(".orderNumvalue").val()
+            var orderName = $(".orderNamevalue").val()
+            var orderPhone = $(".orderPhonevalue").val()
+            var getTime = $(".getTimevalue").val()
+            var parms={
+                "window":window,
+                "orderNum":orderNum,
+                "orderName":orderName,
+                "orderPhone":orderPhone,
+                "getTime":getTime
+            }
+            $.ajax({
+                type:'post',
+                url:'http://localhost:8080/order/insert.do',
+                dataType:'json',
+                data:parms,
+                success:function (result){
+                    if(result.code === 200){
+                        $('.zbanner').css('display','block')
+                        $('.activity').css('display','block')
+                        $('.hiden').css('display','none')
+                        alert("预定成功")
+                    }else if(result.code === 505){
+                        alert("预定失败！请填写预约人和联系方式！")
+                    }else {
+                            alert("预定失败！！")
+                    }
+
+                }
+            });
+
+        };
         $("#gerenzhongxin").click(function (){
             if (sessionStorage.getItem("uesrname") !== null){
                 window.location.href = 'shop.html'
@@ -237,7 +194,7 @@
                         if (result.code == 200){
                             $(".act_ul").empty();
                             $.each(result.obj.pageData,function (index,elem){
-                                $(".act_ul").append("<div class='act_li'><div class='act_img'><img style='width:100%;height:300px' src="+'http://localhost:8080'+elem.firstUrl+"></div><div class='act_text' style='position:relative'><h3>"+elem.raisingTitle+"</h3><p><span style='color:coral'><span style='font-size: 18px'>"+elem.targetAmount+"</span><span style='color:#444;font-size: 18px'>急需筹款（元）|</span></span><span style='color:coral;padding-left:14px'><span style='font-size: 18px'>"+elem.currentAmount+"</span><span style='color:#444;font-size: 18px'>已经筹到 &nbsp;</span></span></p><a>立即捐款</a></div></div>")
+                                $(".act_ul").append("<div class='act_li'><div class='act_img'><img style='width:100%;height:300px' src="+'http://localhost:8080'+elem.firstUrl+"></div><div class='act_text' style='position:relative'><h3>"+elem.raisingTitle+"</h3><p><span style='color:coral'><span style='font-size: 18px'>"+elem.targetAmount+"</span><span style='color:#444;font-size: 18px'>急需筹款（元）|</span></span><span style='color:coral;padding-left:14px'><span style='font-size: 18px'>"+elem.currentAmount+"</span><span style='color:#444;font-size: 18px'>已经筹到 &nbsp;</span></span></p><a>查看菜品</a></div></div>")
                                 $(".act_text").each(function (index){
                                     $(this).find("a").addClass("juankuan"+(index+1))
                                 })
@@ -299,6 +256,12 @@
         arrtext.push(arr1);
     </script>
     <script type="text/javascript">
+        $(function() {// 初始化内容
+            if(sessionStorage.getItem("role") === '学生'){
+                console.log("aaa")
+                $('#teachter').css('display','none')
+            }
+        });
       $(function () {
         $('.xiala').click(function () {
           $('.lang ul').toggle();
@@ -311,59 +274,120 @@
       })
       window.onload = function (){
           $("#index").click(function (){
-              window.location.href = 'index.html'
+              window.location.href = 'index1.html'
           })
           $("#brand").click(function (){
               window.location.href = 'brand.html'
           })
-          // $("#activity").click(function (){
-          //     window.location.href = 'activity.html'
-          // })
           $("#activity").click(function (){
-              if (sessionStorage.getItem("uesrname") !== null){
-                  window.location.href = 'shop.html'
-              }else{
-                  alert("请登录！！")
-                  window.location.href = '../login.html'
-              }
+              window.location.href = 'activity.html'
           })
+          $("#gerenzhongxin").click(function (){
+              window.location.href = 'shop.html'
+          });
+          $("#teachter").click(function (){
+              window.location.href = 'teachter.html'
+          });
+          $("#investment").click(function (){
+              window.location.href = 'investment.html'
+          });
+          $("#recruitment").click(function (){
+              window.location.href = 'recruitment.html'
+          });
+          $("#pinlun").click(function (){
+              window.location.href = 'pinlun.html'
+          });
+          $(".choukuancaidan").click(function (){
+              window.location.href = 'activity.html'
+          });
           $("#contact").click(function (){
               window.location.href = 'contact.html'
           })
-        if (sessionStorage.getItem("uesrname") != null){
-          $(".hidelogin").css('display','none');
-          $(".hidelogin").css('display','none');
-          $("#user").html(sessionStorage.getItem("uesrname"))
-          console.log(sessionStorage.getItem("uesrname"))
-        }else{
-            $("#user").html("登录")
-            if ( $("#user").html() == '登录'){
-                $('#user').css("cursor","pointer")
-                $('#user').click(function (){
-                    window.location.href = '../login.html'
-                })
-            }else{
-                console.log("用户已登录")
-            }
-        }
-      }
+          if (sessionStorage.getItem("uesrname") != null){
+              $(".hidelogin").css('display','none');
+              $(".hidelogin").css('display','none');
+              $("#user").html(sessionStorage.getItem("uesrname"))
+              console.log(sessionStorage.getItem("uesrname"))
+          }else{
+              $("#user").html("登录")
+              if ( $("#user").html() == '登录'){
+                  $('#user').css("cursor","pointer")
+                  $('#user').click(function (){
+                      window.location.href = '../login.html'
+                  })
+              }else{
+                  console.log("用户已登录")
+              }
+          }
+      };
+      //1号窗口接口
+      $.ajax({
+          type:'post',
+          url:'http://localhost:8080/menu/listStudentMenu.do',
+          dataType:'json',
+          data:{"window":1},
+          success:function (result){
+              console.log(result)
+              if (result.code == 200){
+                  $.each(result.obj,function(index,elem){
+                      $(".studentsmenu1").append("<li style='width: 25%;float: left;position: relative;padding:10px 10px'> <img style='width: 100%;height: 220px' src="+'http://localhost:8080'+elem.firstUrl+"><p style='text-align: center;font-size: 18px'>"+elem.menuName+"</p></li>")
+                  })
+              }
+          }
+      });
+      //2号窗口接口
+      $.ajax({
+          type:'post',
+          url:'http://localhost:8080/menu/listStudentMenu.do',
+          dataType:'json',
+          data:{"window":2},
+          success:function (result){
+              console.log(result)
+              if (result.code == 200){
+                  $.each(result.obj,function(index,elem){
+                      $(".studentsmenu2").append("<li style='width: 25%;float: left;position: relative;padding:10px 10px'> <img style='width: 100%;height: 220px' src="+'http://localhost:8080'+elem.firstUrl+"><p style='text-align: center;font-size: 18px'>"+elem.menuName+"</p></li>")
+                  })
+              }
+          }
+      });
+      //3号窗口接口
+      $.ajax({
+          type:'post',
+          url:'http://localhost:8080/menu/listStudentMenu.do',
+          dataType:'json',
+          data:{"window":3},
+          success:function (result){
+              console.log(result)
+              if (result.code == 200){
+                  $.each(result.obj,function(index,elem){
+                      $(".studentsmenu3").append("<li style='width: 25%;float: left;position: relative;padding:10px 10px'> <img style='width: 100%;height: 220px' src="+'http://localhost:8080'+elem.firstUrl+"><p style='text-align: center;font-size: 18px'>"+elem.menuName+"</p></li>")
+                  })
+              }
+          }
+      });
+
       function myFunction() {
           var txt;
           if (confirm("是否要退出登录")) {
               txt = "您按了确定";
+              sessionStorage.removeItem("role");
               sessionStorage.removeItem("uesrname");
-              sessionStorage.removeItem("token");
+              sessionStorage.removeItem("id");
               window.location.href = '../login.html'
           } else {
               txt = "您按了取消";
           }
       };
 
-      function myFunctionupdate() {
+    </script>
+    <script>
+      $(".faqichoukuan").click(function (){
+          $(".activity").css("display","none")
+          $(".wenjianshangchuan").css("display","block")
+          $(".hidefooter").css("display","none")
+      });           function myFunctionupdate() {
           var txt;
           var id = sessionStorage.getItem("id");
-          var token = sessionStorage.getItem("token");
-          // debugger;
           var password = prompt("请输入密码：");
           var passwordtwo = prompt("请再次输入密码：");
           var parms = {'id': id, 'password': password}
@@ -374,31 +398,20 @@
           }else{
               $.ajax({
                   type:'post',
-                  url:'http://localhost:8080/admin/update.do',
-                  dataType:'json',
-                  contentType:'application/json',
-                  headers:{"token":token},
-                  data:JSON.stringify(parms),
+                  url:'http://localhost:8080/userinfo/updatePassword.do',
+                  data: {id:id,password:password},
                   success:function (result){
                       console.log(result)
                       if (result.code == 0){
                           alert("密码修改成功，请重新登录")
                           sessionStorage.removeItem("uesrname");
                           sessionStorage.removeItem("id");
-                          // window.location.reload();
                           window.location.href='../login.html'
                       }
                   }
               })
           }
       }
-    </script>
-    <script>
-      $(".faqichoukuan").click(function (){
-          $(".activity").css("display","none")
-          $(".wenjianshangchuan").css("display","block")
-          $(".hidefooter").css("display","none")
-      });
       $(".queding").click(function (){
           $(".activity").css("display","block")
           $(".wenjianshangchuan").css("display","none")

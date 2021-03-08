@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="front/css/iconfont.css">
     <link rel="stylesheet" href="front/css/style.css">
 </head>
-<body>
+<body background="static/admin/images/background2.svg" style="background-size: cover;">
     <script type="text/javascript">
       $(function () {
         $('.top .pcnone').click(function () {
@@ -29,105 +29,16 @@
         })
       })
     </script>
-    <section class="top">
-      <div class="cont">
-        <div class="l"><只要人人的献出一点爱,世上就变成美好的人间></div>
-        <div class="r phone">
-          <a href="login.html" class="hidelogin" ><i class="iconfont icon-yonghu"></i>登录</a>
-          <a href="front/register.html"><i class="iconfont icon-zhuce reg"></i>注册</a>
-<!--          <a class="lang" href="javascript:;">-->
-<!--            <i class="iconfont icon-diqiu"></i>-->
-<!--            <span>注销</span>-->
-<!--            <ul>-->
-<!--              <li>退出登录</li>-->
-<!--              <li>修改密码</li>-->
-<!--            </ul>-->
-<!--            <i class="xiala iconfont icon-xia"></i>-->
-<!--          </a>-->
-        </div>
-        <i class="pcnone r iconfont icon-guanbi"></i>
-      </div>
-    </section>
-    <header>
-      <div class="cont">
-        <div class="logo l">
-          <img class="l" src="front/img/logo7.png" alt="">
-          <div class="pcnone r">
-            <i class="iconfont icon-liebiao meau"></i>
-            <i class="iconfont icon-search search"></i>
-          </div>
-        </div>
-        <div class="nav r">
-          <div class="pcnone tit"><i class="iconfont icon-zuo"></i>目录</div>
-          <div class="navs">
-            <a href="front/index.html" class="act">首页</a>
-            <a href="front/brand.html">公益活动</a>
-            <a  id="choukuancaidan">筹款菜单</a>
-            <a  id="gerenzhongxin">个人中心</a>
-            <a href="front/contact.html">联系我们</a>
-          </div>
-          <div class="pcnone log">
-            <a href="login.html">登录</a>
-            <a href="front/register.html">注册</a>
-            <a href="/">退出登录</a>
-            <a href="/">修改密码</a>
-          </div>
-        </div>
-      </div>
-    </header>
     <section class="login">
-      <div class="cont">
-        <div class="form">
+      <div class="cont" style="margin-left:0px;" >
+        <div class="form" style="margin-top: 240px;margin-left: 100px" >
           <h3>账户登录</h3>
-          <input type="text" placeholder="请输入您的用户" id="userId">
+          <input type="text" placeholder="请输入您的用户" id="username">
           <input type="password" placeholder="请输入您的密码" id="password">
-<!--          <div class="icon"><a class="iconfont icon-wechat"></a><a class="iconfont icon-weibo"></a><a class="iconfont icon-zhifubao"></a></div>-->
           <a class="btn" style="cursor: pointer" >登录</a>
-          <div class="tip"><a href="front/register.html">新用户注册</a> </div>
         </div>
       </div>
     </section>
-    <footer>
-      <div class="footer">
-        <div class="cont">
-          <ul>
-            <li><a href="">关于我们</a></li>
-            <li><a href="">服务条款</a></li>
-            <li><a href="">新手指南</a></li>
-            <li><a href="">联系我们</a></li>
-            <li><a href="">友情链接</a></li>
-          </ul>
-          <p class="center">版权所有 © 后勤饮食服务中心管理系统. 2020 @CopyRight</p>
-        </div>
-      </div>
-    </footer>
-    <script type="text/javascript">
-        $("#gerenzhongxin").click(function (){
-            if (sessionStorage.getItem("uesrname") !== null){
-                console.log("gsdjgklsjl")
-                window.location.href = 'shop.html'
-            }else{
-                alert("请登录！！")
-                window.location.href = 'login.html'
-            }
-        });
-        $("#choukuancaidan").click(function (){
-            if (sessionStorage.getItem("uesrname") !== null){
-                window.location.href = 'activity.html'
-            }else{
-                alert("请登录！！")
-                window.location.href = 'login.html'
-            }
-        });
-      $(function () {
-        var wei = $(window).height();
-        var top = $('.top').outerHeight();
-        var nav = $('header').outerHeight();
-        var fot = $('footer').outerHeight();
-        var min = wei-top-nav-fot;
-        $('.login').css('min-height',min);
-      })
-    </script>
     <script type="text/javascript">
       $(function () {
         $('.xiala').click(function () {
@@ -142,19 +53,21 @@
     </script>
 <script>
 $(".btn").click(function (){
-    userId = $('#userId').val()
+    username = $('#username').val()
     password = $('#password').val()
     $.ajax({
         type:'post',
         url:'http://localhost:8080/userinfo/login.do',
         dataType:'json',
-        headers:{'userId': userId, 'password': password},
+        data:{'userId': username, 'password': password},
         success:function (result){
+            //
             if (result.code == 200){
-                sessionStorage.setItem("uesrname", result.userId);
-                sessionStorage.setItem("id", result.id);
-
-                window.location.href='front/index.html'
+                sessionStorage.setItem("role",result.obj.role);
+                sessionStorage.setItem("id",result.obj.id);
+                sessionStorage.setItem("uesrname", result.obj.realName);
+                // sessionStorage.setItem("token", result.token);
+                window.location.href='front/index1.html'
             }else{
                 alert(result.message)
             }
@@ -162,5 +75,11 @@ $(".btn").click(function (){
     })
 })
 </script>
+<style>
+    body{
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+</style>
 </body>
 </html>

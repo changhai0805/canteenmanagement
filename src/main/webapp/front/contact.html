@@ -31,7 +31,7 @@
     <section class="top">
       <div class="cont">
         <div class="l">
-          <只要人人的献出一点爱,世上就变成美好的人间>
+          <自觉遵守饭堂纪律,养成饮食卫生习惯>
         </div>
         <div class="r phone" style=""><a class="lang" href="javascript:;">
 
@@ -40,7 +40,6 @@
               <li onclick="myFunctionupdate()">修改密码</li>
           </ul>
           <i class="xiala iconfont icon-xia"></i> </a>
-          <a href="register.html"><i class="iconfont icon-zhuce reg"></i>注册</a>
         </div>
         <span class="r" id="user" ></span>
         <i class="iconfont icon-diqiu r" style="display: inline-block;margin-right: 6px"></i>
@@ -50,7 +49,6 @@
     <header>
       <div class="cont">
         <div class="logo l">
-          <img class="l" src="img/logo7.png" alt="">
           <div class="pcnone r">
             <i class="iconfont icon-liebiao meau"></i>
             <i class="iconfont icon-search search"></i>
@@ -58,27 +56,21 @@
         </div>
         <div class="nav r">
           <div class="pcnone tit"><i class="iconfont icon-zuo"></i>目录</div>
-          <div class="navs"> <a id="index" >首页</a> <a id="brand" >公益活动</a> <a id="activity" class="choukuancaidan">筹款菜单</a> <a  id="gerenzhongxin">个人中心</a>  <a id="contact"  class="act">联系我们</a> </div>
-
-          <div class="pcnone log">
-            <a href="../login.html" class="hidelogin">登录</a>
-            <a href="register.html" class="hidelogin">注册</a>
-            <a href="/">注销登录</a>
-            <a href="/">修改密码</a>
-          </div>
+            <div class="navs"> <a id="index" >首页</a> <a id="brand" >中心介绍</a> <a id="activity" class="choukuancaidan">团体用餐预定</a><a id="teachter" >教工餐菜单</a><a  id="gerenzhongxin">新闻中心</a>  <a id="pinlun" >餐厅风貌</a><a  id="contact"  class="act">投诉与建议</a> </div>
         </div>
       </div>
     </header>
     <section class="contact midle">
       <div class="cont">
-        <div class="l">
-          <div class="main">
-            <h3 class="center">联系我们</h3>
-            <h5 class="center">CONTACT US</h5>
+        <div class="l" style="background: rgb(255,137,100)">
+          <div class="main" style="background: rgb(255,137,100)">
+            <h3 class="center">投诉与建议</h3>
+            <h5 class="center">
+                Complaints and suggestions</h5>
             <ul>
-              <li>地 址：河北省外国语学院</li>
-              <li>电 话：88888888，4008200</li>
-              <li>邮 箱：11616888424@163.com</li>
+              <li>地 址：河北省石家庄市</li>
+              <li>电 话：6666666，4008200</li>
+              <li>邮 箱：85484464@163.com</li>
             </ul>
           </div>
         </div>
@@ -86,7 +78,7 @@
           <input class="myname" type="text" placeholder="请输入您的名字">
           <input class="mytelephone" type="text" placeholder="请输入您的联系方式">
           <textarea class="mymessage" name="" id="" cols="30" rows="10" placeholder="请输入您对我们的留言"></textarea>
-          <a onclick="mybtn()">提交</a>
+          <a onclick="mybtn()" style="background: rgb(255,137,100)">提交</a>
 
         </div>
       </div>
@@ -102,7 +94,7 @@
             <li><a href="">联系我们</a></li>
             <li><a href="">友情链接</a></li>
           </ul>
-          <p class="center">版权所有 © 后勤饮食服务中心管理系统. 2020@CopyRight</p>
+          <p class="center">版权所有 © 爱心筹. 2020@CopyRight</p>
         </div>
       </div>
     </footer>
@@ -119,7 +111,7 @@
       })
       window.onload = function (){
         $("#index").click(function (){
-          window.location.href = 'index.html'
+          window.location.href = 'index1.html'
         })
         $("#brand").click(function (){
           window.location.href = 'brand.html'
@@ -128,20 +120,28 @@
           window.location.href = 'activity.html'
         })
         $("#gerenzhongxin").click(function (){
-            if (sessionStorage.getItem("uesrname") !== null){
-                window.location.href = 'shop.html'
-            }else{
-                alert("请登录！！")
-                window.location.href = '../login.html'
-            }
+            window.location.href = 'shop.html'
         });
+          $("#teachter").click(function (){
+              window.location.href = 'teachter.html'
+          });
+          $("#investment").click(function (){
+              window.location.href = 'investment.html'
+          });
+          $("#recruitment").click(function (){
+              window.location.href = 'recruitment.html'
+          });
+          $("#pinlun").click(function (){
+              window.location.href = 'pinlun.html'
+          });
           $(".choukuancaidan").click(function (){
-              if (sessionStorage.getItem("uesrname") !== null){
-                  window.location.href = 'activity.html'
-              }else{
-                  alert("请登录！！")
-                  window.location.href = '../login.html'
-              }
+              window.location.href = 'activity.html'
+              // if (sessionStorage.getItem("uesrname") !== null){
+              //     window.location.href = 'activity.html'
+              // }else{
+              //     alert("请登录！！")
+              //     window.location.href = '../login.html'
+              // }
           });
         $("#contact").click(function (){
           window.location.href = 'contact.html'
@@ -167,45 +167,14 @@
         var txt;
         if (confirm("是否要退出登录")) {
           txt = "您按了确定";
-          sessionStorage.removeItem("uesrname");
-            sessionStorage.removeItem("token");
+            sessionStorage.removeItem("role");
+            sessionStorage.removeItem("uesrname");
+            sessionStorage.removeItem("id");
           window.location.href = '../login.html'
         } else {
           txt = "您按了取消";
         }
       }
-      function myFunctionupdate() {
-          var txt;
-          var id = sessionStorage.getItem("id");
-          // debugger;
-          var password = prompt("请输入密码：");
-          var passwordtwo = prompt("请再次输入密码：");
-          var parms = {'id': id, 'password': password}
-          var token = sessionStorage.getItem("token");
-          if (password == null || password == "" ||passwordtwo == null || passwordtwo == "") {
-              alert("密码不能为空")
-          } else if(password !=passwordtwo ){
-              alert("俩次输入密码不一致")
-          }else{
-              $.ajax({
-                  type:'post',
-                  url:'http://localhost:8080/admin/update.do',
-                  dataType:'json',
-                  contentType:'application/json',
-                  headers:{"token":token},
-                  data:JSON.stringify(parms),
-                  success:function (result){
-                      console.log(result)
-                      if (result.code == 0){
-                          alert("密码修改成功，请重新登录")
-                          sessionStorage.removeItem("uesrname");
-                          sessionStorage.removeItem("id");
-                          window.location.href='../login.html'
-                      }
-                  }
-              })
-          }
-      };
       function mybtn(){
          var id = sessionStorage.getItem("id");
          var myname = $(".myname").val()
@@ -225,7 +194,13 @@
                   }
               }
           })
-      }
+      };
+      $(function() {// 初始化内容
+          if(sessionStorage.getItem("role") === '学生'){
+              console.log("aaa")
+              $('#teachter').css('display','none')
+          }
+      });
     </script>
 </body>
 </html>

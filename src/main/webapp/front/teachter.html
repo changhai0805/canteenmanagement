@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <title>餐厅风貌</title>
+    <title>教工餐菜单</title>
     <script src="js/jquery-2.1.3.min.js"></script>
     <!--    <script src="js/page.js"></script>-->
     <!--    <link rel="stylesheet" href="css/page.css">-->
@@ -73,7 +73,7 @@
 <section class="top">
     <div class="cont">
         <div class="l">
-            <只要人人的献出一点爱,世上就变成美好的人间>
+            <自觉遵守饭堂纪律,养成饮食卫生习惯>
         </div>
         <div class="r phone" style=""><a class="lang" href="javascript:;">
 
@@ -98,23 +98,23 @@
         </div>
         <div class="nav r">
             <div class="pcnone tit"><i class="iconfont icon-zuo"></i>目录</div>
-            <div class="navs"> <a id="index" >首页</a> <a id="brand" >中心介绍</a> <a id="activity" class="choukuancaidan">团体用餐预定</a><a id="teachter" >教工餐菜单</a> <a id="gerenzhongxin" class="act" >新闻中心</a><a id="pinlun"  >餐厅风貌</a><a id="contact" >投诉与建议</a> </div>
+            <div class="navs"> <a id="index" >首页</a> <a id="brand" >中心介绍</a> <a id="activity" class="choukuancaidan">团体用餐预定</a><a id="teachter"  class="act" >教工餐菜单</a> <a id="gerenzhongxin" >新闻中心</a><a id="pinlun"  >餐厅风貌</a><a id="contact" >投诉与建议</a> </div>
         </div>
     </div>
 </header>
-<!-- <section class="zbanner"></section> -->
-<section class="shop" style="padding: 0px">
-    <div style="width: auto;height: 500px;background: url('./img/anqunbanner.jpg') no-repeat center;background-size:contain"></div>
+ <section class="zbanner"></section>
+<section class="shop">
     <div class="cont">
-        <div class="title" style="margin-bottom:0px;padding-top: 20px">
+        <div class="title" style="margin-bottom:0px">
             <ul class="floatul">
-                <li class="bgli" tabid="1" class="choice" id="reds" style="font-size: 18px">新闻讯息</li>
+                <li class="bgli" tabid="1" class="choice" id="reds" style="font-size: 22px;color:rgb(255,137,100)">每日菜品</li>
             </ul>
         </div>
         <div class="gerenxinxi">
-            <div id="box" style="height: 400px">
+            <div id="box">
                 <div class="tab-item show">
-
+                    <ul class="teachtermenus">
+                    </ul>
                 </div>
             </div>
             <div style="clear:both"></div>
@@ -148,105 +148,24 @@
         })
     })
     window.onload = function (){
-        $.ajax({
-            type:'get',
-            url:'http://localhost:8080/notice/list.do',
-            dataType:'json',
-            success:function (result){
-                if (result.msg === '成功'){
-                    $(".news").html(result.data[0].newsDescription)
-                    $(".times").html(result.data[0].creatTime)
-                }
-                $.each(result.data,function(index,elem){
-                    $(".tab-item").append("<p style='border-bottom:#eee 2px solid;padding-top:20px;padding-bottom:50px'><span>"+elem.newsDescription+"</span><span style='float: right;padding-top:20px'>发布时间<span>"+elem.creatTime+"</span></span></p>")
-                })
-            }
-        });
         //查看个人中心信息
         var id = sessionStorage.getItem("id");
-        var token = sessionStorage.getItem("token");
         $.ajax({
             type:'post',
-            url:'http://localhost:8080/userinfo/selectOne.do',
+            url:'http://localhost:8080/menu/listTeacherMenu.do',
             dataType:'json',
-            headers:{"token":token},
             data:{"id":id},
             success:function (result){
+                console.log(result)
                 if (result.code == 200){
-                    console.log(result)
-                    $(".userName").html(result.obj.userName)
-                    $(".realName").html(result.obj.realName)
-                    $(".sex").html(result.obj.sex)
-                    $(".email").html(result.obj.email)
-                    $(".telephone").html(result.obj.telephone)
-                    $(".birthday").html(result.obj.birthday)
-                    $(".idNumber").html(result.obj.idNumber)
-                }
-            }
-        });
-        //查看个人中心筹款
-        $.ajax({
-            type:'post',
-            url:'http://localhost:8080/raisinginfo/selectRaisingByUserId.do',
-            dataType:'json',
-            headers:{"token":token},
-            data:{"id":id},
-            success:function (result){
-                if (result.code == 200){
-                    $.each(result.obj,function (index,elem){
-                        $("#table_body_result").append("<tr style='width: 100%'><td style='width:300px;font-size: 18px;text-align: center'>"+elem.creatTime+"</td><td style='width:300px;font-size: 18px;text-align: center'>"+elem.raisingTitle+"</td><td style='width:300px;font-size: 18px;text-align: center'>"+elem.raisingName+"</td><td style='width:300px;font-size: 18px;text-align: center;cursor: pointer'>"+elem.raisingDescription+"</td></tr>")
+                    $.each(result.obj,function(index,elem){
+                        $(".teachtermenus").append("<li style='width: 30%;float: left;position: relative;padding:10px 10px'><img style='width: 100%;height: 220px' src="+'http://localhost:8080'+elem.firstUrl+"><p style='text-align: center;font-size: 18px;color: #444444'>"+elem.menuName+"</p></li>")
                     })
-                    goPage(1,8);
                 }
             }
         });
-        //查看我发起的活动
-        $.ajax({
-            type:'post',
-            url:'http://localhost:8080/activitiesinfo/selectCreateActivitiesByUserId.do',
-            dataType:'json',
-            headers:{"token":token},
-            data:{"id":id},
-            success:function (result){
-                if (result.code == 200){
-                    $.each(result.obj,function (index,elem){
-                        $("#table_body_resultthree").append("<tr style='width: 100%'><td style='width:300px;font-size: 18px;text-align: center'>"+elem.startTime+"</td><td style='width:300px;font-size: 18px;text-align: center'>"+elem.activityTitle+"</td><td style='width:300px;font-size: 18px;text-align: center'>"+elem.userName+"</td><td style='width:300px;font-size: 18px;text-align: center;cursor: pointer'>"+elem.activityDescription+"</td></tr>")
-                    })
-                    goPagethree(1,15);
-                }
-            }
-        });
-        // //查看我参与的活动
-        $.ajax({
-            type:'post',
-            url:'http://localhost:8080/activitiesinfo/selectJoinActivitiesByUserId.do',
-            dataType:'json',
-            headers:{"token":token},
-            data:{"id":id},
-            success:function (result){
-                if (result.code == 200){
-                    $.each(result.obj,function (index,elem){
-                        $("#table_body_resulttwo").append("<tr style='width: 100% '><td style='width:300px;font-size: 18px;text-align: center'>"+elem.startTime+"</td><td style='width:300px;font-size: 18px;text-align: center'>"+elem.activityTitle+"</td><td style='width:300px;font-size: 18px;text-align: center'>"+elem.userName+"</td><td style='width:300px;font-size: 18px;text-align: center;cursor: pointer'>"+elem.activityDescription+"</td></tr>")
-                    })
-                    goPagetwo(1,15);
-                }
-            }
-        });
-        //查看我的钱包接口
-        $.ajax({
-            type:'post',
-            url:'http://localhost:8080/userinfo/selectUserWallet.do',
-            dataType:'json',
-            headers:{"token":token},
-            data:{"id":id},
-            success:function (result){
-                if (result.code == 200){
-                    $("#qianbaousername").html(result.obj.userName)
-                    $("#qianbaorealName").html(result.obj.realName)
-                    $("#qianbaoyue").html(result.obj.remainingSum)
-                }
-            }
-        });
+
+
         $("#index").click(function (){
             window.location.href = 'index1.html'
         })

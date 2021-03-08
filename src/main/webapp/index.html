@@ -57,7 +57,6 @@
 						success: function(result) {
 							console.log(result)
 							if (result.code == 200){
-								sessionStorage.setItem('token',result.token);
 								sessionStorage.setItem('userId',result.userId)
 								sessionStorage.setItem('id',result.id)
 								popup.success(result.message, function() {
