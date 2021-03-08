@@ -20,9 +20,13 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
     public CommonResult insertOrder(OrderInfo orderInfo) {
         if(orderInfo==null){
             return new CommonResult(500,"插入失败",0);
+        }else if(orderInfo.getOrderName()==null||orderInfo.getOrderName().trim().equals("")){
+            return new CommonResult(505,"插入失败",0);
+        }else if(orderInfo.getOrderPhone()==null||orderInfo.getOrderPhone().trim().equals("")){
+            return new CommonResult(505,"插入失败",0);
         }else {
             String orderTime = Utils.getDateTime();
-            orderInfo.setOrderName(orderTime);
+            orderInfo.setOrderTime(orderTime);
             if(orderInfoMapper.insert(orderInfo)==1){
                 return new CommonResult(200,"插入成功",1);
             }else {
